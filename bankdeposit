@@ -1,0 +1,19 @@
+import java.text.DecimalFormat;
+
+class BankDeposit {
+    double p,r,n;BankDeposit(double a,double b,double c){p=a;r=b/1200;n=c*12;}
+    double getInterestPerMonth(){return p*r;}
+    double getTotalInterest(){return p*r*n;}
+}
+
+public class BankDepositTest {
+    public static void main(String[] args) {
+        DecimalFormat df=new DecimalFormat("#.##");
+        BankDeposit d1=new BankDeposit(10000,6.5,3);
+        BankDeposit d2=new BankDeposit(5000,8,5);
+        BankDeposit d3=new BankDeposit(15000,7.25,2);
+        System.out.println("3: "+d1.p+" "+d1.r*1200+" "+df.format(d1.getTotalInterest())+" "+df.format(d1.getInterestPerMonth()));
+        System.out.println("5: "+d2.p+" "+d2.r*1200+" "+df.format(d2.getTotalInterest())+" "+df.format(d2.getInterestPerMonth()));
+        System.out.println("2: "+d3.p+" "+d3.r*1200+" "+df.format(d3.getTotalInterest())+" "+df.format(d3.getInterestPerMonth()));
+    }
+}

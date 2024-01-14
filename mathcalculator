@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+class MathCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("\nChoose the Shape: 1. Rectangle 2. Square 3. Cube 4. Exit");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the length and width of the rectangle: ");
+                    double l = sc.nextDouble(), w = sc.nextDouble();
+                    System.out.println("Area of Rectangle: " + calculate(l, w) + ", Volume of Rectangle: " + calculate(l, w, 0));
+                    break;
+                case 2:
+                    System.out.print("Enter the side of the square: ");
+                    double s = sc.nextDouble();
+                    System.out.println("Area of Square: " + calculate(s) + ", Volume of Square: " + calculate(s, 0));
+                    break;
+                case 3:
+                    System.out.print("Enter the side of the cube: ");
+                    double s1 = sc.nextDouble();
+                    System.out.println("Area of Cube: " + calculate(s1, 0, 0) + ", Volume of Cube: " + calculate(s1));
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please choose a valid option.");
+            }
+        } while (choice != 4);
+    }
+
+    static double calculate(double l, double w) { return l * w; }
+    static double calculate(double s) { return s * s; }
+    static double calculate(double s, double unused1, double unused2) { return 6 * s * s; }
+    static double calculate(double s, double unused) { return s * s * s; }
+}
